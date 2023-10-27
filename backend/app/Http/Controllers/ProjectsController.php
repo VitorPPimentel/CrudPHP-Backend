@@ -11,12 +11,12 @@ class ProjectsController extends Controller
     {
         try {
             $validatedData = $request->validate([
-                'name' => 'required|string|max:255',
-                'start_date' => 'required|date',
-                'end_date' => 'nullable|date',
-                'status' => 'required',
-                'value' => 'required',
-                'creator' => 'required',
+                'name'          => 'required|string|max:255',
+                'start_date'    => 'required|date',
+                'end_date'      => 'nullable|date',
+                'status'        => 'required',
+                'value'         => 'required',
+                'creator'       => 'required',
             ]);
             $create = Project::create($validatedData);
 
@@ -31,7 +31,7 @@ class ProjectsController extends Controller
     public function getAll() {
         try {
             return Project::paginate(10);
-            
+
         } catch (\Throwable $th) {
             return response()->json(['message' => $th], 400);
         }
