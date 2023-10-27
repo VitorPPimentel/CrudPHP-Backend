@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     public function getAllUsers(){
-        return User::get();
+        return User::paginate(10);
     }
 
 

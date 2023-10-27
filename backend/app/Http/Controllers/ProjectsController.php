@@ -30,7 +30,7 @@ class ProjectsController extends Controller
 
     public function getAll() {
         try {
-            return Project::paginate(10);
+            return Project::get();
 
         } catch (\Throwable $th) {
             return response()->json(['message' => $th], 400);
